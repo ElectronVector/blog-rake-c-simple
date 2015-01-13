@@ -1,3 +1,8 @@
+require 'rake/clean'
+
+CLEAN.include('*.o')
+CLOBBER.include('*.exe')
+
 source_files = Rake::FileList["*.c"]
 object_files = source_files.ext(".o")
 
