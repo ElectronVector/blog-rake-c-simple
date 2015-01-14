@@ -11,9 +11,9 @@ task :binary => object_files do
     sh "gcc #{object_files} -o app.exe"
 end
 
-task 'main.o' do
-    sh "gcc -c main.c"
-end 
+rule '.o' => '.c' do |task|
+    sh "gcc -c #{task.source}"
+end
 
 desc "rake binary"
 task :default => :binary
